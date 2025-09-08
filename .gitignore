@@ -179,6 +179,18 @@ desktop.ini
 
 # Logs
 *.log
-
+Summary_Doc/**
+logs/
+*.out
+*.err   
+*.pot
+*.pyc
+*.pyo
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+*.log
 # Project specific
 sandbox_city/._*
