@@ -1,0 +1,30 @@
+name: Artemis City CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run CLI with a sample command
+      run: python interface/codex_cli.py "status"
+
+    - name: Run Mail Delivery Simulation
+      run: python sandbox_city/networked_scripts/mail_delivery_sim.py
